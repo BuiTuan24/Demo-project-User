@@ -8,6 +8,7 @@ public class QuanliUserApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(QuanliUserApplication.class, args);
+
 	}
 
 }
