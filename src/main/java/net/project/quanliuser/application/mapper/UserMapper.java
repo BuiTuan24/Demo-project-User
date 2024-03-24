@@ -1,9 +1,8 @@
-package net.project.quanliuser.mapper;
+package net.project.quanliuser.application.mapper;
 
-import net.project.quanliuser.dto.UserDto;
-import net.project.quanliuser.entity.UserEntity;
 
-import java.util.List;
+import net.project.quanliuser.application.dto.request.UserDto;
+import net.project.quanliuser.domain.entity.UserEntity;
 
 public class UserMapper {
 

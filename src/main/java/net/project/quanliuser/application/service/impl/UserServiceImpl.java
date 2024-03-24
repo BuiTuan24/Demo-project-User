@@ -1,13 +1,12 @@
-package net.project.quanliuser.service.impl;
+package net.project.quanliuser.application.service.impl;
 
-import net.project.quanliuser.dto.UserDto;
-import net.project.quanliuser.entity.UserEntity;
-import net.project.quanliuser.mapper.UserMapper;
-import net.project.quanliuser.repository.UserRepository;
-import net.project.quanliuser.service.UserService;
+
+import net.project.quanliuser.application.dto.request.UserDto;
+import net.project.quanliuser.domain.entity.UserEntity;
+import net.project.quanliuser.application.mapper.UserMapper;
+import net.project.quanliuser.Infrastructure.repository.UserRepository;
+import net.project.quanliuser.application.service.UserService;
 import org.springframework.stereotype.Service;
-
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,11 +25,11 @@ public class UserServiceImpl implements UserService {
     public UserDto createUserEntity(UserDto userDto) {
         UserEntity userEntity = UserMapper.mapToUserEntity(userDto);
         UserEntity savedUserEntity = userRepository.save(userEntity);
-        return UserMapper.mapToUserDto(savedUserEntity);
+            return UserMapper.mapToUserDto(savedUserEntity);
     }
 
     @Override
-    public UserDto getUserEntityById(Long id) {
+    public UserDto getUserEntityById(String id) {
 
         UserEntity userEntity = userRepository
                 .findById(id)
@@ -39,7 +38,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto updateUserEntity(Long id, UserDto updatedUserDto) {
+    public UserDto updateUserEntity(String id, UserDto updatedUserDto) {
 
         UserEntity existingUserEntity = userRepository
                 .findById(id)
@@ -61,7 +60,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(Long id) {
+    public void deleteUser(String id) {
         UserEntity userEntity = userRepository
                 .findById(id)
                 .orElseThrow(() -> new RuntimeException("User khong ton tai"));

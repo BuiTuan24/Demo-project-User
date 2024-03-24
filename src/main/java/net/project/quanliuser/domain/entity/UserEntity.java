@@ -1,4 +1,4 @@
-package net.project.quanliuser.entity;
+package net.project.quanliuser.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -17,12 +17,11 @@ import lombok.Setter;
 public class UserEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String id;
 
     @Column(name = "user_name")
     private String userName;
     private String email;
-
-
 }
+
