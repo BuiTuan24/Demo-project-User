@@ -1,11 +1,11 @@
-package net.project.quanliuser.application.service.impl;
+package net.project.quanliuser.domain.service;
 
 
 import net.project.quanliuser.application.dto.request.UserDto;
 import net.project.quanliuser.domain.entity.UserEntity;
 import net.project.quanliuser.application.mapper.UserMapper;
-import net.project.quanliuser.Infrastructure.repository.UserRepository;
-import net.project.quanliuser.application.service.UserService;
+import net.project.quanliuser.domain.repository.UserRepository;
+import net.project.quanliuser.domain.service.UserService;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;

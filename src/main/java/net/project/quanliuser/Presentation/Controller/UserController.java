@@ -1,9 +1,8 @@
-package net.project.quanliuser.Presentation.controller;
+package net.project.quanliuser.Presentation.Controller;
 
 import jakarta.validation.Valid;
-
 import net.project.quanliuser.application.dto.request.UserDto;
-import net.project.quanliuser.application.service.UserService;
+import net.project.quanliuser.domain.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,51 +11,47 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/username")
-public class UserController {
+public class UserController implements UserControllerInterface {
 
-    private UserService userService;
+
+    private final UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-
-    //add User
+    @Override
     @PostMapping
-    public ResponseEntity<UserDto> addUserEntity(@Valid @RequestBody UserDto userDto){
+    public ResponseEntity<UserDto> addUserEntity(@Valid @RequestBody UserDto userDto) {
         return new ResponseEntity<>(userService.createUserEntity(userDto), HttpStatus.CREATED);
     }
 
-
-    //Get User
+    @Override
     @GetMapping("/{id}")
-    public ResponseEntity<UserDto> getUserEntityById(@Valid @PathVariable String id){
+    public ResponseEntity<UserDto> getUserEntityById(@Valid @PathVariable String id) {
         UserDto userDto = userService.getUserEntityById(id);
         return ResponseEntity.ok(userDto);
     }
 
-    //udapte User
+    @Override
     @PutMapping("/{id}/update")
     public ResponseEntity<UserDto> updateUser(@Valid @PathVariable String id, @RequestBody UserDto updatedUserDto) {
-
         UserDto updatedUser = userService.updateUserEntity(id, updatedUserDto);
         return ResponseEntity.ok(updatedUser);
     }
 
-    //Get all User
+    @Override
     @GetMapping
-    public ResponseEntity<List<UserDto>> getAllUser(){
-        List<UserDto> user =  userService.getAllUser();
+    public ResponseEntity<List<UserDto>> getAllUser() {
+        List<UserDto> user = userService.getAllUser();
         return ResponseEntity.ok(user);
     }
 
-    //Delete Userbyid
+    @Override
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteUser(@Valid @PathVariable String id){
+    public ResponseEntity<String> deleteUser(@Valid @PathVariable String id) {
         userService.deleteUser(id);
         return ResponseEntity.ok("Thong tin User da xoa thanh cong!");
     }
-
 }
-
 

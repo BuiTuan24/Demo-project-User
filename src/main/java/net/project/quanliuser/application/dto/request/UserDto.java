@@ -24,4 +24,8 @@ import lombok.NoArgsConstructor;
         @Size(max = 150)
         private String email;
 
+        private String phonenumber;
+
+
     }
+

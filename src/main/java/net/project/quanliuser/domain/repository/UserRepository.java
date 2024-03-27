@@ -1,4 +1,4 @@
-package net.project.quanliuser.Infrastructure.repository;
+package net.project.quanliuser.domain.repository;
 
 import net.project.quanliuser.domain.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
