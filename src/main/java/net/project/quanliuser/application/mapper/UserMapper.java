@@ -10,7 +10,8 @@ public class UserMapper {
         UserEntity userEntity = new UserEntity(
                 userDto.getId(),
                 userDto.getUserName(),
-                userDto.getEmail()
+                userDto.getEmail(),
+                userDto.getPhonenumber()
         );
 
         return userEntity;
@@ -20,7 +21,8 @@ public class UserMapper {
         UserDto userDto = new UserDto(
                 userEntity.getId(),
                 userEntity.getUserName(),
-                userEntity.getEmail()
+                userEntity.getEmail(),
+                userEntity.getPhonenumber()
         );
 
         return userDto;

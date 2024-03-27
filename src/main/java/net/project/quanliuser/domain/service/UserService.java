@@ -1,4 +1,4 @@
-package net.project.quanliuser.application.service;
+package net.project.quanliuser.domain.service;
 
 
 
